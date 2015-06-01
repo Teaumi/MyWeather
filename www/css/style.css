@@ -1,25 +1,68 @@
 * {
-  box-sizing: border-box; }
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  outline: none; }
+
+a {
+  color: #11a7ab;
+  font-weight: bold;
+  text-decoration: none; }
 
 body {
   color: #8f99b7;
-  font-family: Cantarell;
+  font-family: "Ubuntu";
   font-size: 16px;
   background-color: #1f253d; }
 
-input.text {
+h1 {
+  font-size: 28px;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  margin: 45px 0;
+  display: none; }
+
+p {
+  margin: 1em 0px;
+  overflow: hidden;
+  *zoom: 1;
+  line-height: 24px; }
+
+.chapo {
+  font-weight: bold; }
+
+label {
+  display: block;
+  margin-bottom: 5px; }
+
+input.text, textarea.text {
   display: block;
   width: 100%;
   height: 48px;
   border: 1px solid #1f253d;
   background-color: #4f597b;
-  color: #ffffff;
+  color: #fff;
   font-size: 16px;
   padding-left: 10px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
   border-radius: 4px;
-  outline: none; }
-  input.text:focus {
+  -webkit-background-clip: padding;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s; }
+  input.text:focus, textarea.text:focus {
     border: 1px solid #11a7ab; }
+
+textarea.text {
+  height: 150px;
+  padding-top: 15px; }
 
 input.submit, .btn {
   display: inline-block;
@@ -30,18 +73,31 @@ input.submit, .btn {
   text-transform: uppercase;
   text-align: center;
   font-size: 16px;
-  color: #ffffff;
+  color: #fff;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
   border-radius: 4px;
+  -webkit-background-clip: padding;
+  -moz-background-clip: padding;
   background-clip: padding-box;
   background-color: #e54b65;
   float: right;
-  text-decoration: none; }
+  text-decoration: none;
+  cursor: pointer; }
 
 .btn {
   background-color: #11a7ab;
-  float: left; }
+  float: left;
+  cursor: pointer;
+  font-weight: normal; }
+
+.map {
+  margin-left: 2px; }
 
 .back {
+  display: block;
   position: absolute;
   background-size: contain;
   z-index: 10;
@@ -49,12 +105,14 @@ input.submit, .btn {
   left: 10px;
   height: 50px;
   width: 50px;
+  cursor: pointer;
   background-image: url("../img/retour.png"); }
 
 .loader {
   background: #e54b65;
   width: 100%;
   height: 100%;
+  background: url("../img/ajax-loader.GIF") center center no-repeat rgba(57, 66, 100, 0.6);
   z-index: 500; }
 
 .row-title {
@@ -70,113 +128,133 @@ input.submit, .btn {
   text-align: center;
   font-weight: bold; }
 
+.row-title {
+  height: 60px;
+  line-height: 60px;
+  text-transform: uppercase;
+  background-color: #cb314b;
+  -webkit-border-radius: 4px 4px 0 0;
+  -moz-border-radius: 4px 4px 0 0;
+  -ms-border-radius: 4px 4px 0 0;
+  -o-border-radius: 4px 4px 0 0;
+  border-radius: 4px 4px 0 0;
+  -webkit-background-clip: padding;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  color: #fff;
+  font-size: 18px;
+  text-align: center;
+  font-weight: bold; }
+
 .row {
   height: 60px;
-  background-color: #394163;
-  margin: 1px 0;
-  position: relative; }
-  .row i {
-    position: absolute;
-    left: 20px;
-    top: 10px; }
+  line-height: 60px;
+  overflow: hidden;
+  background-color: #4f597b;
+  border-bottom: 1px solid #1f253d;
+  color: #fff; }
   .row .temperature {
     position: absolute;
-    align-content: right;
-    left: 70%;
-    top: 40%; }
+    text-transform: uppercase;
+    font-size: 22px;
+    left: 81%;
+    /*text-align: right;
+    // height: 60px; line-height: 60px;
+    padding-right: 20px;
+    font-size: 22px;
+    float: right;
+    margin-left: 40px;
+    width: 79px;*/ }
   .row .date {
+    float: right;
+    color: #1f253d;
+    text-transform: uppercase;
+    font-weight: bold;
     position: absolute;
-    left: 35%;
-    top: 40%; }
-  .row .icon-rain {
-    background-image: url("../img/icon-rain.png");
-    background-size: contain;
-    height: 40px;
-    width: 40px; }
-  .row .icon-clear {
-    background-image: url("../img/icon-clear.png");
-    background-size: contain;
-    height: 40px;
-    width: 40px; }
-  .row .icon-clouds {
-    background-image: url("../img/icon-clouds.png");
-    background-size: contain;
-    height: 40px;
-    width: 40px; }
+    left: 41%; }
+    .row .date strong {
+      color: #fff;
+      margin-right: 5px; }
+  .row span {
+    float: left;
+    padding-left: 20px;
+    font-size: 35px;
+    height: 60px;
+    line-height: 60px;
+    margin-right: 30px; }
+  .row.row_active {
+    height: 120px;
+    background-color: #e54b65; }
+    .row.row_active .date {
+      color: #fff;
+      float: left;
+      line-height: 60px;
+      margin-left: 15px;
+      position: absolute;
+      left: 0; }
+    .row.row_active .temperature {
+      position: absolute;
+      text-transform: uppercase;
+      float: left;
+      font-size: 60px;
+      margin-left: 10px;
+      margin-top: 45px;
+      left: 0; }
+    .row.row_active span {
+      float: right;
+      font-size: 95px;
+      height: 120px;
+      line-height: 120px; }
+    .row.row_active .icon-cloudy {
+      background-image: url("../img/icon-cloudy.png");
+      background-size: contain;
+      position: absolute;
+      left: 66%;
+      width: 120px;
+      height: 120px; }
+    .row.row_active .icon-snow {
+      background-image: url("../img/icon-snow.png");
+      background-size: contain;
+      position: absolute;
+      left: 66%;
+      width: 120px;
+      height: 120px; }
+    .row.row_active .icon-storm {
+      background-image: url("../img/icon-storm.png");
+      background-size: contain;
+      position: absolute;
+      left: 66%;
+      width: 120px;
+      height: 120px; }
+    .row.row_active .icon-snowy2 {
+      background-image: url("../img/icon-snowy2.png");
+      background-size: contain;
+      position: absolute;
+      left: 66%;
+      width: 120px;
+      height: 120px; }
+    .row.row_active .icon-rain {
+      background-image: url("../img/icon-rain.png");
+      background-size: contain;
+      position: absolute;
+      left: 66%;
+      width: 120px;
+      height: 120px; }
+    .row.row_active .icon-clear, .row.row_active .icon-sun {
+      background-image: url("../img/icon-clear.png");
+      background-size: contain;
+      position: absolute;
+      left: 66%;
+      width: 120px;
+      height: 120px; }
+    .row.row_active .icon-clouds {
+      background-image: url("../img/icon-clouds.png");
+      background-size: contain;
+      position: absolute;
+      left: 66%;
+      width: 120px;
+      height: 120px; }
 
-.row_active {
-  height: 120px;
-  background-color: #cb314b;
-  margin: 1px 0;
-  position: relative; }
-  .row_active i {
-    position: absolute;
-    left: 20px;
-    top: 10px; }
-  .row_active .temperature {
-    position: absolute;
-    align-content: right;
-    left: 0%;
-    top: 20%;
-    font-size: 60px; }
-  .row_active .date {
-    position: absolute;
-    left: 8px;
-    top: 10%; }
-  .row_active .icon-rain {
-    background-image: url("../img/icon-rain.png");
-    background-size: contain;
-    height: 100px;
-    width: 100px;
-    left: 50%; }
-  .row_active .icon-clear {
-    background-image: url("../img/icon-clear.png");
-    background-size: contain;
-    height: 100px;
-    width: 100px;
-    left: 50%; }
-  .row_active .icon-clouds {
-    background-image: url("../img/icon-clouds.png");
-    background-size: contain;
-    height: 100px;
-    width: 100px;
-    left: 50%; }
-
-i {
-  display: inline-block; }
-
-i.icon-home {
-  background-image: url("../img/home.png");
-  background-size: contain;
-  height: 40px;
-  width: 40px; }
-
-.icon-about {
-  background-image: url("../img/about.png");
-  background-size: contain;
-  height: 40px;
-  width: 40px; }
-
-h1 {
-  font-size: 28px;
-  text-align: center;
-  color: #fff;
-  font-weight: bold;
-  margin: 45px 0;
-  display: none; }
-
-p {
-  margin: 1em 0px; }
-
-input.text {
-  display: block;
-  width: 100%;
-  height: 48px;
-  border: 1px solid #1f253d; }
-
-/*------------------------------------*\
-    $INTERFACE
-\*------------------------------------*/
 .header {
   position: absolute;
   top: 0;
@@ -184,7 +262,7 @@ input.text {
   right: 0;
   height: 60px;
   line-height: 60px;
-  color: #ffffff;
+  color: #fff;
   text-transform: uppercase;
   text-align: center;
   background-color: #11a7ab; }
@@ -192,9 +270,9 @@ input.text {
 .view {
   position: absolute;
   top: 60px;
-  left: 0;
   right: 0;
-  bottom: 60px; }
+  bottom: 60px;
+  left: 0; }
 
 .nav {
   position: absolute;
@@ -203,24 +281,32 @@ input.text {
   right: 0;
   height: 60px;
   line-height: 60px;
+  color: #fff;
   text-align: center;
   background-color: #4f597b;
-  overflow: hidden; }
+  overflow: hidden;
+  *zoom: 1; }
   .nav a {
     display: block;
     width: 50%;
+    float: left;
+    color: #fff;
     height: 60px;
     line-height: 60px;
-    float: left;
-    transition-duration: 1s; }
-  .nav i {
-    margin-top: 15px; }
-  .nav a:first-child {
-    border-right: 1px solid #1f253d; }
+    text-decoration: none;
+    font-size: 25px;
+    -webkit-transition-duration: 0.3s;
+    -moz-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    transition-duration: 0.3s; }
+    .nav a:first-child, .nav a:nth-child(2) {
+      border-right: 1px solid #1f253d; }
   .nav .active {
     border-top: 3px solid #11a7ab; }
+  .nav span {
+    margin-top: 15px; }
 
-.panel {
+.panel, .loader {
   position: absolute;
   top: 0;
   left: 0;
@@ -228,20 +314,120 @@ input.text {
   bottom: 0;
   overflow-x: hidden;
   overflow-y: scroll;
-  transition-duration: .5s; }
-  .panel .right {
-    transform: translateX(0) !important; }
+  -webkit-overflow-scrolling: touch;
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  transition-duration: 0.5s; }
 
 .panel-padding {
-  padding: 0 25px; }
+  padding: 25px; }
 
 .left {
-  transform: translateX(-100%); }
+  -webkit-transform: translate3D(-100%, 0, 0);
+  -moz-transform: translate3D(-100%, 0, 0);
+  -ms-transform: translate3D(-100%, 0, 0);
+  -o-transform: translate3D(-100%, 0, 0);
+  transform: translate3D(-100%, 0, 0); }
 
 .center {
-  transform: translateX(0); }
+  -webkit-transform: translate3D(0%, 0, 0);
+  -moz-transform: translate3D(0%, 0, 0);
+  -ms-transform: translate3D(0%, 0, 0);
+  -o-transform: translate3D(0%, 0, 0);
+  transform: translate3D(0%, 0, 0); }
 
 .right {
-  transform: translateX(100%); }
+  -webkit-transform: translate3D(100%, 0, 0);
+  -moz-transform: translate3D(100%, 0, 0);
+  -ms-transform: translate3D(100%, 0, 0);
+  -o-transform: translate3D(100%, 0, 0);
+  transform: translate3D(100%, 0, 0); }
+
+/*
+|-----------------------------------------------------
+| Icomoon
+|-----------------------------------------------------
+|
+*/
+i.icon-home {
+  background-image: url("../img/home.png");
+  background-size: contain;
+  position: absolute;
+  margin-left: -18px;
+  top: 11px;
+  height: 40px;
+  width: 40px; }
+
+i.icon-about {
+  background-image: url("../img/about.png");
+  background-size: contain;
+  position: absolute;
+  margin-left: -18px;
+  top: 11px;
+  height: 40px;
+  width: 40px; }
+
+.icon-cloudy {
+  background-image: url("../img/icon-cloudy.png");
+  background-size: contain;
+  position: absolute;
+  left: 0px;
+  width: 60px;
+  height: 60px; }
+
+.icon-snow {
+  background-image: url("../img/icon-snow.png");
+  background-size: contain;
+  position: absolute;
+  left: 0px;
+  width: 60px;
+  height: 60px; }
+
+.icon-storm {
+  background-image: url("../img/icon-storm.png");
+  background-size: contain;
+  position: absolute;
+  left: 0px;
+  width: 60px;
+  height: 60px; }
+
+.icon-snowy2 {
+  background-image: url("../img/icon-snowy2.png");
+  background-size: contain;
+  position: absolute;
+  left: 0px;
+  width: 60px;
+  height: 60px; }
+
+.icon-rain {
+  background-image: url("../img/icon-rain.png");
+  background-size: contain;
+  position: absolute;
+  left: 0px;
+  width: 60px;
+  height: 60px; }
+
+.icon-clear, .icon-sun {
+  background-image: url("../img/icon-clear.png");
+  background-size: contain;
+  position: absolute;
+  left: 0px;
+  width: 60px;
+  height: 60px; }
+
+.icon-clouds {
+  background-image: url("../img/icon-clouds.png");
+  background-size: contain;
+  position: absolute;
+  left: 0px;
+  width: 60px;
+  height: 60px; }
+
+#map-canvas {
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  z-index: 100; }
 
 /*# sourceMappingURL=style.css.map */

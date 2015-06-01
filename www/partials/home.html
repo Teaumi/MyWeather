@@ -1,37 +1,50 @@
 <section ng-controller="WeatherCtrl">
     
-    <div class="loader" ng-show="loader" >CHARGEMENT</div>
+    <div class="loader" ng-show="loader" > </div>
     <a class="back" ng-hide="panel==0" ng-click="panel=0"></a>
 
     <section
         class="panel panel-padding"
-        ng-class="{center:panel==0, left:panel>0}">
-        <p>Bienvenue sur mon application de météo.
-        </p>
+        ng-class="{center:panel==0, left:panel>0}"
+        ng-hide="panel!=0">
+
+        <p>Bienvenue sur mon application de météo.</p>
 
         <form ng-submit="search()">
+
             <p>
-                <input class="text" type="text" placeholder
-                ="Rechercher une ville" ng-model="city"/>
+                <input class="text" type="text" placeholder="Rechercher une ville" ng-model="city"/>
             </p>
+
             <p>
                 <a class="btn" ng-click="geolocate()"> Ma position</a>
-                <input class="submit" type="submit" value=
-                "Rechercher"/>
+
+                <a class="btn map" ng-click="detailedMap()"> Carte </a>
+                <input class="submit" type="submit" value="Rechercher" />
             </p>
         </form>
     </section>
 
     <section
-        class="panel"
-        ng-class="{center:panel==1, right:panel<1}">
+            id="map-canvas"
+            class="panel left"
+            ng-class="{center:panel==2, left:panel==2}"
+            ng-hide="panel==0|| panel==1">
+    </section>
+
+
+
+    <section
+        class="panel right"
+        ng-class="{center:panel==1, right:panel<1}"
+        ng-hide="panel==0" >
+
         <div class="row-title">
             {{weather.city.name}}/{{weather.city.country}}
         </div>
-        <div class="row" ng-class="{row_active: $index==0}"
-            ng-repeat="t in weather.list" ng-click=
-            "expand($event)">
-            <div class="temperature">{{Math.round(t.temp.day)}}°C</div>
+
+        <div class="row" ng-class="{row_active: $index==0}" ng-repeat="t in weather.list" ng-click="expand($event)">
+            <div class="temperature">{{Math.round(t.temp.min)}}/{{Math.round(t.temp.max)}}°C</div>
             <div class="date">
                 <strong>{{t.dt*1000 | date:'EEE'}}</strong>
                 {{t.dt*1000 | date:'dd/MM'}}
@@ -39,5 +52,8 @@
             <i class="icon-{{t.weather.0.main.toLowerCase()}}"></i>
         </div>
     </section>
+
+
+
 
 </section>

@@ -1,3 +1,3 @@
 function NavCtrl($scope){
-    $scope.menu = 'home';
+	$scope.menu = 'home';
 }

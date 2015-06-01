@@ -1,39 +1,40 @@
 <!DOCTYPE html>
-
-<html data-ng-app="app">
+<html ng-app="app">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, target-densitydpi=device-dpi" />
-    <link href="http://fonts.googleapis.com/css?family=Cantarell:italic|Droid+Serif:bold" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <title>Hello World</title>
+	<meta charset="utf-8" />
+	<!-- <meta name="format-detection" content="telephone=no" /> -->
+	<!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+	<link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<title>FlatWeather</title>
 </head>
 <body>
-<header class="header">
-    Mon application Météo
-</header>
+    <header class="header">
+        Flat Weather
+    </header>
 
-<section class="view" data-ng-view>
-</section>
+    <section class="view" ng-view>
+    </section>
 
-<nav class="nav" ng-controller="NavCtrl">
-    <a href="#home"
-       ng-click="menu='home'"
-       ng-class="{active: menu=='home'}"
-    >
-        <i class="icon-home">&nbsp;</i>
-    </a>
-    <a href="#about"
-       ng-click="menu='about'"
-       ng-class="{active: menu=='about'}"
-    >
-        <i class="icon-about">&nbsp;</i></a>
-</nav>
+    <nav class="nav" ng-controller="NavCtrl">
+        <a href="#home" ng-click="menu='home'" ng-class="{active: menu=='home'}" >
+            <i class="icon-home">&nbsp;</i>
+        </a>
+        <a href="#about" ng-click="menu='about'" ng-class="{active: menu=='about'}" >
+            <i class="icon-about">&nbsp;</i></a>
 
-<script src="js/jquery.js"></script>
-<script src="js/angular.js"></script>
-<script src="js/app.js"></script>
-<script src="js/controller/NavCtrl.js"></script>
-<script src="js/controller/WeatherCtrl.js"></script>
+		<a href="#contact" ng-click="menu='contact'" ng-class="{active: menu=='contact'}">
+			<i class="icon-envelope"></i>
+		</a>
+	</nav>
+
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=weather"></script>
+    <script type="text/javascript" src="js/jquery.js"> </script>
+	<script type="text/javascript" src="js/angular.js"> </script>
+   <script type="text/javascript" src="js/controller/NavCtrl.js"> </script>
+    <script type="text/javascript" src="js/controller/WeatherCtrl.js"> </script>
+    <script type="text/javascript" src="js/controller/ContactCtrl.js"> </script>
+	<script type="text/javascript" src="js/app.js"> </script>
 </body>
 </html>
