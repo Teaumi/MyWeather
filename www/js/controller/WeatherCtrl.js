@@ -2,11 +2,13 @@ function WeatherCtrl($scope, $http, GeolocationService){
 
     $scope.panel = 0;
 
+    $scope.appId = "&APPID=479bfc5b5ddefb852a5fc178dcaaf80a";
+
     $scope.search = function() {
 
         if($scope.city != null) {
 
-            var url = "http://api.openweathermap.org/data/2.5/forecast/daily?q=" + $scope.city + "&mode=json&units=metric&cnt=7";
+            var url = "http://api.openweathermap.org/data/2.5/forecast/daily?q=" + $scope.city + "&mode=json&units=metric&cnt=7" + $scope.appId;
 
             $scope.loader = true;
             $http.get(url).success(httpSuccess).error(httpError);
@@ -24,7 +26,7 @@ function WeatherCtrl($scope, $http, GeolocationService){
     $scope.geolocate = function(){
         $scope.loader = true;
         GeolocationService.getCurrentPosition(function(position) {
-            $http.get('http://api.openweathermap.org/data/2.5/forecast/daily?lat='+ position.coords.latitude +'&lon='+  position.coords.longitude +'&mode=jsons&units=metric')
+            $http.get('http://api.openweathermap.org/data/2.5/forecast/daily?lat='+ position.coords.latitude +'&lon='+  position.coords.longitude +'&mode=jsons&units=metric' + $scope.appId)
                 .success(httpSuccess)
                 .error(httpError);
         });
